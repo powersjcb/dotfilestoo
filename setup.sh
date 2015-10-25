@@ -8,7 +8,7 @@ elif [[ -x "/usr/bin/yum" ]]; then
     echo "yum detected"
     INSTALL_METHOD="yum"
     yum check-update
-elif which programname >/dev/null; then
+elif which brew >/dev/null; then
     echo "Homebrew detected"
     INSTALL_METHOD="brew"
     brew update
@@ -20,7 +20,10 @@ fi
 try_install () {
     {
         echo "Tring to install $1"
+        { which $1 >/dev/null } && { echo "Already installed";  return; }
+    } && {
         $INSTALL_METHOD install $1
+
     } || {
         echo "Failed to install $1"
     }

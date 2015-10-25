@@ -22,8 +22,8 @@ fi
 
 try_install () {
     {
-        echo "Tring to install $1"
-        { which $1 >/dev/null } && { echo "Already installed";  return; }
+        echo "Tring to install $1";
+        { which $1 >/dev/null; } && { echo "Already installed";  return; }
     } && {
         $INSTALL_METHOD install $1
 
@@ -32,17 +32,25 @@ try_install () {
     }
 }
 
-try_install "zsh"
+try_install "zsh";
 
-echo "Switching to zsh"
-exec zsh
+if [[ ! -x "${HOME}/.zprezto" ]]; then
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${HOME}/.zprezto"
+fi
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+shopt -s extglob
+for rcfile in $HOME/.zprezto/runcoms/!(README.md); do
+    ln -s "$rcfile" "${HOME}/.$(basename $rcfile)"
 done
 
-zsh
+
+#ln -s "${HOME}/.zprezto/runcoms/zlogin"    "${HOME}/.zlogin"
+#ln -s "${HOME}/.zprezto/runcoms/zlogout"   "${HOME}/.zlogout"
+#ln -s "${HOME}/.zprezto/runcoms/zpreztorc" "${HOME}/.zpreztorc"
+#ln -s "${HOME}/.zprezto/runcoms/zprofile"  "${HOME}/.zprofile"
+#ln -s "${HOME}/.zprezto/runcoms/zshenv"    "${HOME}/.zshenv"
+#ln -s "${HOME}/.zprezto/runcoms/zshrc"     "${HOME}/.zshrc"
+
+
+
 

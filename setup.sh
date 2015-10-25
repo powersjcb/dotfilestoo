@@ -1,4 +1,7 @@
-sh symlink.sh
+#!/usr/bin/env bash
+
+
+bash symlink.sh
 
 if [[ -x "/usr/bin/apt-get" ]]; then
     echo "apt-get detected"
@@ -32,7 +35,7 @@ try_install () {
 try_install "zsh"
 
 echo "Switching to zsh"
-zsh
+exec zsh
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 

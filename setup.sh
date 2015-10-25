@@ -31,6 +31,8 @@ try_install () {
 
 try_install "zsh"
 
+echo "Switching to zsh"
+zsh
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 

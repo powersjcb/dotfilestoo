@@ -1,6 +1,22 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off
+
+" Setup vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'Buffergator'
+Plugin 'wookiehangover/jshint.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kevinw/pyflakes-vim.git'
+call vundle#end()
+filetype plugin indent on
+
 
 " ================ General Config ====================
 set number                      "Line numbers are good
@@ -53,9 +69,9 @@ endif
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set expandtab
 
 " Auto indent pasted text
@@ -63,7 +79,6 @@ nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 
 filetype plugin on
-filetype indent on
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -76,6 +91,7 @@ set linebreak    "Wrap lines at convenient points
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
+noremap <space> za
 
 " ================ Completion =======================
 
@@ -106,3 +122,6 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+map <c-n> :NERDTreeToggle<CR>
+let g:airline_powerline_fonts = 1
+set laststatus=2

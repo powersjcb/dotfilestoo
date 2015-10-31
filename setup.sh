@@ -43,14 +43,6 @@ for rcfile in $HOME/.zprezto/runcoms/!(README.md); do
     ln -s "$rcfile" "${HOME}/.$(basename $rcfile)"
 done
 
-
-#ln -s "${HOME}/.zprezto/runcoms/zlogin"    "${HOME}/.zlogin"
-#ln -s "${HOME}/.zprezto/runcoms/zlogout"   "${HOME}/.zlogout"
-#ln -s "${HOME}/.zprezto/runcoms/zpreztorc" "${HOME}/.zpreztorc"
-#ln -s "${HOME}/.zprezto/runcoms/zprofile"  "${HOME}/.zprofile"
-#ln -s "${HOME}/.zprezto/runcoms/zshenv"    "${HOME}/.zshenv"
-#ln -s "${HOME}/.zprezto/runcoms/zshrc"     "${HOME}/.zshrc"
-
-
-
-
+if [[ -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
+    git clone https://github.com/gmarik/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
+fi

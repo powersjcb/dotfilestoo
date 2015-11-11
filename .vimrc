@@ -13,7 +13,11 @@ Plugin 'Buffergator'
 Plugin 'wookiehangover/jshint.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-Plugin 'kevinw/pyflakes-vim.git'
+" Bundle 'andviro/flake8-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'hdima/python-syntax'
+Plugin 'kana/vim-fakeclip'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 
@@ -122,6 +126,9 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-map <c-n> :NERDTreeToggle<CR>
+map <c-\> :NERDTreeToggle<CR>
 let g:airline_powerline_fonts = 1
 set laststatus=2
+let python_highlight_all = 1
+let g:PyFlakeOnWrite = 1
+let g:flake8_show_in_file = 1

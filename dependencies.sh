@@ -6,17 +6,18 @@ mkdir cd $TEMP_DIR
 trap "echo 'Removing temp directory'; rm -rf $TEMP_DIR;" EXIT
 
 
-# Download zsh
+# Download and install zsh
 wget -O $TEMP_DIR/zsh-5.2.tar.gz http://sourceforge.net/projects/zsh/files/zsh/5.2/zsh-5.2.tar.gz/download
-wget -O $TEMP_DIR/zsh-5.2.tar.gz.asc http://sourceforge.net/projects/zsh/files/zsh/5.2/zsh-5.2.tar.gz.asc/download
+tar -zxvf $TEMP_DIR/zsh-5.2.tar.gz
 
-# Validate authenticity
-gpg --keyserver pgp.mit.edu --recv-key 4BDB27B3
-gpg $TEMP_DIR/zsh-5.2.tar.gz.asc
-echo $(gpg $TEMP_DIR/zsh-5.2.tar.gz.asc)
-if [ $? != "0" ]
-then
-    exit 1
-fi
+LOCAL_DIR=$HOME/local/
+mkdir $LOCAL_DIR
+
+cd zsh-5.2
+./configure --prefix=$LOCAL_DIR
+make && make test && make install
+
+chsh -s $LOCAL_DIR/bin/zsh
+
 
 

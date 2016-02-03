@@ -18,6 +18,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'hdima/python-syntax'
 Plugin 'kana/vim-fakeclip'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
@@ -31,6 +32,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set textwidth=120
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -68,6 +70,17 @@ if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
   set undofile
 endif
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" ================ Window movement ==================
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+
+" ================ Window resizing =================
 " ================ Indentation ======================
 
 set autoindent

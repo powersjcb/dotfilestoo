@@ -8,4 +8,5 @@ TARGETDIR=$(dirname $PWD)
 
 ln -sf $SOURCEDIR/.tmux.conf $TARGETDIR/.tmux.conf
 ln -sf $SOURCEDIR/.vimrc $TARGETDIR/.vimrc
+ln -sf $SOURCEDIR/.ideavimrc $TARGETDIR/.ideavimrc
 

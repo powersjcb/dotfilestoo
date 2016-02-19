@@ -14,11 +14,9 @@ Plugin 'wookiehangover/jshint.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 " Bundle 'andviro/flake8-vim'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'hdima/python-syntax'
 Plugin 'kana/vim-fakeclip'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 

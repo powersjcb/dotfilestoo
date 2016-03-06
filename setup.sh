@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+bash dependencies.sh
 bash symlink.sh
 
 if [[ -x "/usr/bin/apt-get" ]]; then
@@ -46,3 +46,15 @@ done
 if [[ -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
     git clone https://github.com/gmarik/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
 fi
+
+generic_libraries = (
+    "python-setuptools"
+    "python-pip"
+)
+
+for lib in generic_libraries; do
+    try_install lib
+done
+
+pip install pip -U
+pip install -r $HOME/.global_requirements.txt

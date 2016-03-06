@@ -6,7 +6,22 @@ sh .gitaliases.sh
 SOURCEDIR=$PWD
 TARGETDIR=$(dirname $PWD)
 
-ln -sf $SOURCEDIR/.tmux.conf $TARGETDIR/.tmux.conf
-ln -sf $SOURCEDIR/.vimrc $TARGETDIR/.vimrc
-ln -sf $SOURCEDIR/.ideavimrc $TARGETDIR/.ideavimrc
+linked_files = (
+    ".tmux.conf"
+    ".vimrc"
+    ".ideavimrc"
+    ".global_requirements.txt"
+)
 
+link_to_home() {
+    echo "Linking $1:
+    {
+        ln -sf $SOURCEDIR/$1 $TARGETDIR/$1
+    } || {
+        echo "Failed to create link for: $1"
+    }
+}
+
+for file_name in linked_files; do
+    link_to_home file_name
+done

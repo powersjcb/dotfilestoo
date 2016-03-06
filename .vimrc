@@ -13,9 +13,9 @@ Plugin 'Buffergator'
 Plugin 'wookiehangover/jshint.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-" Bundle 'andviro/flake8-vim'
 Plugin 'hdima/python-syntax'
 Plugin 'kana/vim-fakeclip'
+Plugin 'powersjcb/vim-tmux-navigator'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
@@ -72,12 +72,6 @@ endif
 set splitbelow
 set splitright
 
-" ================ Window movement ==================
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-h> <C-w>h
-noremap <C-l> <C-w>l
-
 " ================ Window resizing =================
 " ================ Indentation ======================
 
@@ -123,12 +117,6 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"
-" ================ Scrolling ========================
-
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
 
 " ================ Search ===========================
 
@@ -137,11 +125,18 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-map <c-\> :NERDTreeToggle<CR>
+noremap <c-\> :NERDTreeToggle<CR>
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let python_highlight_all = 1
 let g:PyFlakeOnWrite = 1
 let g:flake8_show_in_file = 1
 
-inoremap jk <ESC>
+" ================ Scrolling ========================
+
+set scrolloff=4         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+set colorcolumn=120
+
+source ~/.ideavimrc

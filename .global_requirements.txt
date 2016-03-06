@@ -1,0 +1,3 @@
+thefuck
+httpie
+flake8

@@ -17,7 +17,7 @@ elif which brew >/dev/null; then
     brew update
 else
     echo "could not find installer"
-    exit 1 
+    exit 1
 fi
 
 try_install () {
@@ -58,3 +58,5 @@ done
 
 pip install pip -U
 pip install -r $HOME/.global_requirements.txt
+
+bash npm_which.sh

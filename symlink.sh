@@ -6,15 +6,16 @@ sh .gitaliases.sh
 SOURCEDIR=$PWD
 TARGETDIR=$(dirname $PWD)
 
-linked_files = (
+linked_files=(
     ".tmux.conf"
     ".vimrc"
     ".ideavimrc"
     ".global_requirements.txt"
+    "scripts.sh"
 )
 
 link_to_home() {
-    echo "Linking $1:
+    echo "Linking $1:"
     {
         ln -sf $SOURCEDIR/$1 $TARGETDIR/$1
     } || {

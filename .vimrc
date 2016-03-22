@@ -10,16 +10,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Buffergator'
-Plugin 'wookiehangover/jshint.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-Plugin 'hdima/python-syntax'
 Plugin 'kana/vim-fakeclip'
 Plugin 'powersjcb/vim-tmux-navigator'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
-filetype plugin indent on
-
 
 " ================ General Config ====================
 set number                      "Line numbers are good
@@ -95,6 +92,19 @@ set list listchars=tab:\ \ ,trail:·
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
+
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+noremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+
+autocmd FileWritePre    * :call TrimWhiteSpace()
+autocmd FileAppendPre   * :call TrimWhiteSpace()
+autocmd FilterWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre     * :call TrimWhiteSpace()
+
+
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
@@ -129,7 +139,6 @@ noremap <c-\> :NERDTreeToggle<CR>
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let python_highlight_all = 1
-let g:PyFlakeOnWrite = 1
 let g:flake8_show_in_file = 1
 
 " ================ Scrolling ========================
@@ -139,4 +148,27 @@ set sidescrolloff=15
 set sidescroll=1
 set colorcolumn=120
 
+" =============== syntastic setup =======================
+let g:syntastic_javascript_checkers = ['eslint']
+
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+
+" source generic settings
 source ~/.ideavimrc

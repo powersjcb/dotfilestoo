@@ -5,14 +5,14 @@ sh .gitaliases.sh
 
 SOURCEDIR=$PWD
 TARGETDIR=$(dirname $PWD)
+IFS=$'\n'
 
-linked_files=(
-    ".tmux.conf"
-    ".vimrc"
-    ".ideavimrc"
-    ".global_requirements.txt"
-    "scripts.sh"
-)
+LINKED_FILES=".zshrc
+.tmux.conf
+.vimrc
+.ideavimrc
+.global_requirements.txt
+scripts.sh"
 
 link_to_home() {
     echo "Linking $1:"
@@ -23,6 +23,8 @@ link_to_home() {
     }
 }
 
-for file_name in linked_files; do
-    link_to_home file_name
+echo $LINKED_FILES
+
+for file_name in $LINKED_FILES; do
+    link_to_home $file_name
 done

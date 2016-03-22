@@ -1,10 +1,11 @@
-if [ -s "$HOME/.bash_profile"]; then
+if [ -s $HOME/.bash_profile ]; then
     source $HOME/.bash_profile
-elif [ -s "$HOME/.bashrc"]; then
+elif [ -s $HOME/.bashrc ]; then
+    source $HOME/.bashrc
+elif [ -s $HOME/.bash/.bash_profile ]; then
     source $HOME/.bashrc
 else
     echo "couldn't find shell profile"
-    exit 1
 fi
 
 # Source Prezto.

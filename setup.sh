@@ -3,6 +3,10 @@
 bash dependencies.sh
 bash symlink.sh
 
+
+IFS=$'\n'
+
+
 if [[ -x "/usr/bin/apt-get" ]]; then
     echo "apt-get detected"
     INSTALL_METHOD="apt-get"
@@ -47,10 +51,9 @@ if [[ -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
     git clone https://github.com/gmarik/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
 fi
 
-generic_libraries = (
-    "python-setuptools"
-    "python-pip"
-)
+generic_libraries="python-setuptools
+python-pip"
+
 
 for lib in generic_libraries; do
     try_install lib

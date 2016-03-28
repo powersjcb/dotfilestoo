@@ -36,8 +36,6 @@ try_install () {
     }
 }
 
-try_install "zsh";
-
 if [[ ! -x "${HOME}/.zprezto" ]]; then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${HOME}/.zprezto"
 fi
@@ -56,7 +54,7 @@ python-pip"
 
 
 for lib in generic_libraries; do
-    try_install lib
+    try_install $lib
 done
 
 pip install pip -U

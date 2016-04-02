@@ -14,10 +14,10 @@ LINKED_FILES=".zshrc
 .global_requirements.txt
 scripts.sh"
 
-link_to_home() {
+link_to() {
     echo "Linking $1:"
     {
-        ln -sf $SOURCEDIR/$1 $TARGETDIR/$1
+        ln -sf $SOURCEDIR/$1 $2/$1
     } || {
         echo "Failed to create link for: $1"
     }
@@ -26,5 +26,8 @@ link_to_home() {
 echo $LINKED_FILES
 
 for file_name in $LINKED_FILES; do
-    link_to_home $file_name
+    link_to $file_name $TARGETDIR
 done
+
+link_to "flake8" "$TARGETDIR/.config/"
+

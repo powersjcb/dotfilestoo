@@ -9,6 +9,7 @@ IFS=$'\n'
 
 LINKED_FILES=".zshrc
 .tmux.conf
+.ctags
 .vimrc
 .ideavimrc
 .global_requirements.txt

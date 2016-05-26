@@ -25,7 +25,7 @@ git clone --depth 1 https://github.com/rbenv/rbenv.git $TEMP_DIR/.rbenv
 
 # Download and install newest vim
 
-git clone --depth 1 https://github.com/vim/vim.git 
+git clone --depth 1 https://github.com/vim/vim.git
 cd vim
 ./configure --with-features=huge \
     --enable-multibyte \
@@ -39,6 +39,3 @@ make VIMRUNTIMEDIR=/usr/share/vim/vim74
 sudo make install
 
 ln -s $LOCAL_DIR/* $HOME/
-
-# Last step should be to add all paths
-#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> $HOME/.bash_profile

@@ -1,3 +1,4 @@
 thefuck
 httpie
 flake8
+ipython

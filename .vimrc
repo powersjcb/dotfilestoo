@@ -14,8 +14,8 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kana/vim-fakeclip'
 Plugin 'powersjcb/vim-tmux-navigator'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 
 " ================ General Config ====================
@@ -108,7 +108,7 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
+set foldnestmax=0       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 noremap <space> za
 
@@ -169,6 +169,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_loc_list_height=3
 
 " source generic settings
 source ~/.ideavimrc

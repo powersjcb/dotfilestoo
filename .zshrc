@@ -13,9 +13,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-ssh-add $HOME/.ssh/pg1_rsa
-ssh-add $HOME/.ssh/github_rsa
-ssh-add $HOME/.ssh/id_rsa
+ssh-add -l $HOME/.ssh/github_rsa
+ssh-add -l $HOME/.ssh/pg1_rsa
+ssh-add -l $HOME/.ssh/id_rsa
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -29,7 +29,6 @@ export PATH="$HOME/.jenv/bin:$PATH"
 
 export EDITOR=vim
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -37,3 +36,5 @@ eval "$(jenv init -)"
 eval "$(thefuck --alias)"
 
 bindkey -M vicmd '?' history-incremental-search-backward
+
+alias ctags="`brew --prefix`/bin/ctags"

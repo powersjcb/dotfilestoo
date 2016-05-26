@@ -1,0 +1,4 @@
+--fields=+l
+--exclude=.git
+--exclude=log
+--exclude=.idea

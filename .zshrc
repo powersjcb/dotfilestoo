@@ -17,6 +17,8 @@ ssh-add -l $HOME/.ssh/github_rsa
 ssh-add -l $HOME/.ssh/pg1_rsa
 ssh-add -l $HOME/.ssh/id_rsa
 
+sh $HOME/alias.sh
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export NVM_DIR="/Users/jpowers/.nvm"
@@ -38,3 +40,7 @@ eval "$(thefuck --alias)"
 bindkey -M vicmd '?' history-incremental-search-backward
 
 alias ctags="`brew --prefix`/bin/ctags"
+alias srcv="source $PWD/venv/bin/activate || source $PWD/ve/bin/activate"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."

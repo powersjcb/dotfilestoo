@@ -1,4 +1,4 @@
-#!bin/bash
+#!/usr/env/bin bash
 # run this script in ~/dotfiles/
 
 sh .gitaliases.sh
@@ -13,6 +13,7 @@ LINKED_FILES=".zshrc
 .vimrc
 .ideavimrc
 .global_requirements.txt
+alias.sh
 scripts.sh"
 
 link_to() {

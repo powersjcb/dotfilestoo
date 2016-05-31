@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+##### must manually install xcode cli tools first ####
+# xcode-select –-install
+
 # bash dependencies.sh
 bash symlink.sh
 
 #### brew installations ####
-xcode-select –install
 ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
 
 brew update
@@ -44,6 +46,22 @@ brew install svn
 brew install python-setuptools
 brew install python-pip
 brew install python3
+
+
+
+if [[ ! -x "${HOME}/.tmux" ]]; then
+    # try installing tmux
+    {
+        git clone --depth=1 https://github.com/tmux/tmux.git "${HOME}/.tmux/"
+        cd $HOME/.tmux/
+        sh autogen.sh
+        ./configure && make && sudo make install
+    } || {
+        echo "something went wrong while building or installing tmux"
+    }
+    # always return to $HOME
+    cd $HOME
+fi
 
 #if [[ ! -x "${HOME}/.zprezto" ]]; then
 #    git clone --recursive https://github.com/powersjcb/prezto.git "${HOME}/.zprezto"

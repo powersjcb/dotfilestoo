@@ -8,16 +8,19 @@ else
     echo "couldn't find shell profile"
 fi
 
+plugins=(git ssh-agent)
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-ssh-add -l $HOME/.ssh/github_rsa
-ssh-add -l $HOME/.ssh/pg1_rsa
-ssh-add -l $HOME/.ssh/id_rsa
 
-sh $HOME/alias.sh
+ssh-add $HOME/.ssh/droplet_rsa
+#ssh-add $HOME/.ssh/aws_developer_rsa
+ssh-add $HOME/.ssh/github_rsa
+ssh-add $HOME/.ssh/pg1_rsa
+ssh-add $HOME/.ssh/id_rsa
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -31,16 +34,15 @@ export PATH="$HOME/.jenv/bin:$PATH"
 
 export EDITOR=vim
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(jenv init -)"
 eval "$(thefuck --alias)"
 
 bindkey -M vicmd '?' history-incremental-search-backward
-
+alias fix_symantec='launchctl unload /Library/LaunchAgents/com.symantec.uiagent.application.plist'
 alias ctags="`brew --prefix`/bin/ctags"
-alias srcv="source $PWD/venv/bin/activate || source $PWD/ve/bin/activate"
+alias srcv="source venv/bin/activate || source ve/bin/activate"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias product.master="ssh ttam@product.master.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
+alias product.develop="ssh ttam@product.develop.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
+alias product.rkt="ssh ttam@product.researchkit.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"

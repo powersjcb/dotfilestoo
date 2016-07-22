@@ -2,3 +2,4 @@ thefuck
 httpie
 flake8
 ipython
+aws-shell

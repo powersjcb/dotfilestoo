@@ -1,2 +1,0 @@
-#!/usr/env/bin bash
-

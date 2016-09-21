@@ -8,16 +8,17 @@ else
     echo "couldn't find shell profile"
 fi
 
-autoload -Uz promptinit
-promptinit
-prompt steeef
-
 plugins=(git ssh-agent)
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+autoload -Uz promptinit
+promptinit
+prompt steeef
+
 
 #ssh-add $HOME/.ssh/droplet_rsa
 #ssh-add $HOME/.ssh/aws_developer_rsa

@@ -8,6 +8,10 @@ else
     echo "couldn't find shell profile"
 fi
 
+autoload -Uz promptinit
+promptinit
+prompt steeef
+
 plugins=(git ssh-agent)
 
 # Source Prezto.
@@ -15,12 +19,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-
-ssh-add $HOME/.ssh/droplet_rsa
+#ssh-add $HOME/.ssh/droplet_rsa
 #ssh-add $HOME/.ssh/aws_developer_rsa
 ssh-add $HOME/.ssh/github_rsa
 ssh-add $HOME/.ssh/pg1_rsa
 ssh-add $HOME/.ssh/id_rsa
+ssh-add $HOME/.ssh/ttam-shared
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -37,7 +41,6 @@ export EDITOR=vim
 eval "$(thefuck --alias)"
 
 bindkey -M vicmd '?' history-incremental-search-backward
-alias fix_symantec='launchctl unload /Library/LaunchAgents/com.symantec.uiagent.application.plist'
 alias ctags="`brew --prefix`/bin/ctags"
 alias srcv="source venv/bin/activate || source ve/bin/activate"
 alias ..="cd .."
@@ -46,3 +49,7 @@ alias ....="cd ../../.."
 alias product.master="ssh ttam@product.master.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
 alias product.develop="ssh ttam@product.develop.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
 alias product.rkt="ssh ttam@product.researchkit.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
+
+alias gpf="git push -f"
+alias gs="git status"
+alias gl="git log --pretty="tformat:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset""

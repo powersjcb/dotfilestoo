@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-##### must manually install xcode cli tools first ####
-# xcode-select –-install
+#### must manually install xcode cli tools first ####
+ xcode-select –-install
 
-# bash dependencies.sh
+ bash dependencies.sh
 bash symlink.sh
 
-#### brew installations ####
+### brew installations ####
 ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
 
 brew update
@@ -63,14 +63,18 @@ if [[ ! -x "${HOME}/.tmux" ]]; then
     cd $HOME
 fi
 
-#if [[ ! -x "${HOME}/.zprezto" ]]; then
-#    git clone --recursive https://github.com/powersjcb/prezto.git "${HOME}/.zprezto"
-#fi
+if [[ ! -x "${HOME}/.zprezto" ]]; then
+    git clone --recursive https://github.com/powersjcb/prezto.git "${HOME}/.zprezto"
+else
+    cd $HOME/.zprezto
+    git checkout master
+    git pull
+fi
 
-#shopt -s extglob
-#for rcfile in $HOME/.zprezto/runcoms/; do
-#    ln -s "$rcfile" "${HOME}/.$(basename $rcfile)"
-#done
+shopt -s extglob
+for rcfile in $HOME/.zprezto/runcoms/; do
+    ln -s "$rcfile" "${HOME}/.$(basename $rcfile)" | echo "$rcfile already exists"
+done
 
 #if [[ -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
 #    git clone https://github.com/gmarik/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"

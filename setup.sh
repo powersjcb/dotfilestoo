@@ -18,6 +18,7 @@ brew install brew-cask
 brewCaskApps=(atom pycharm dropbox flux github google-chrome iterm2 vagrant vagrant-manager vmware-fusion
 firefox hipchat 1password karabiner slack)
 brew cask install --force --appdir=/Applications ${brewCaskApps[@]}
+brew cask install hyper
 
 brew install moreutils
 brew install findutils --with-default-names
@@ -28,6 +29,7 @@ brew install gzip
 brew install watch
 brew install wdiff --with-gettext
 brew install wget
+brew install htop
 
 brew install bash
 brew install zsh

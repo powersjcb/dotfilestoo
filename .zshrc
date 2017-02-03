@@ -18,6 +18,7 @@ fi
 autoload -Uz promptinit
 promptinit
 prompt steeef
+#prompt elite2 magenta
 
 
 #ssh-add $HOME/.ssh/droplet_rsa
@@ -27,23 +28,29 @@ ssh-add $HOME/.ssh/pg1_rsa
 ssh-add $HOME/.ssh/id_rsa
 ssh-add $HOME/.ssh/ttam-shared
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#eval $(dinghy env)
 
-export NVM_DIR="/Users/jpowers/.nvm"
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$(which flake8):$PATH"
 export PATH="$PATH:./node_modules/.bin"
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
 export EDITOR=vim
 
 eval "$(thefuck --alias)"
 
 bindkey -M vicmd '?' history-incremental-search-backward
+
+alias gf="git fetch --all --prune"
+alias prestart="VAGRANT_CWD=$HOME/23andme/product/ vagrant ssh -c 'supervisorctl restart all'"
+alias dc="docker-compose"
+alias pyconda="export PATH=$HOME/conda/anaconda/bin:$PATH"
 alias ctags="`brew --prefix`/bin/ctags"
-alias srcv="source venv/bin/activate || source ve/bin/activate"
+alias srcv=". venv/bin/activate || . ve/bin/activate"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

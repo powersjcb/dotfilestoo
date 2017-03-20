@@ -33,12 +33,12 @@ ssh-add $HOME/.ssh/ttam-shared
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export NVM_DIR="$HOME/.nvm"
-export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$(which flake8):$PATH"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
+export P4USER=jpowers
 export EDITOR=vim
 
 eval "$(thefuck --alias)"

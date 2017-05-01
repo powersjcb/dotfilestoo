@@ -1,0 +1,26 @@
+[user]
+    name = Jacob Powers
+    email = jpowers@23andme.com
+
+[core]
+    editor = vim
+
+[web]
+    browser = google-chrome
+
+[push]
+    default = simple
+
+[color]
+    ui = auto
+
+[alias]
+    b = branch
+    c = commit
+    co = checkout
+    fall = fetch --all --prune
+    g = grep
+    l = log --pretty=format:'%h %s %ae'
+    last = log -1 HEAD
+    lg = log --oneline --graph --decorate
+    s = status

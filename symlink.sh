@@ -1,8 +1,6 @@
 #!/usr/env/bin bash
 # run this script in ~/dotfiles/
 
-sh .gitaliases.sh
-
 SOURCEDIR=$PWD
 TARGETDIR=$(dirname $PWD)
 IFS=$'\n'
@@ -14,7 +12,9 @@ LINKED_FILES=".zshrc
 .ideavimrc
 .global_requirements.txt
 alias.sh
-scripts.sh"
+scripts.sh
+.gitconfig
+.gitignore"
 
 link_to() {
     echo "Linking $1:"

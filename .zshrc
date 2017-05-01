@@ -20,6 +20,7 @@ promptinit
 prompt steeef
 #prompt elite2 magenta
 
+defaults write com.apple.finder AppleShowAllFiles YES
 
 #ssh-add $HOME/.ssh/droplet_rsa
 #ssh-add $HOME/.ssh/aws_developer_rsa
@@ -32,6 +33,7 @@ ssh-add $HOME/.ssh/ttam-shared
 
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export NVM_DIR="$HOME/.nvm"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$(which flake8):$PATH"

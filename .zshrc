@@ -18,7 +18,6 @@ fi
 autoload -Uz promptinit
 promptinit
 prompt steeef
-#prompt elite2 magenta
 
 defaults write com.apple.finder AppleShowAllFiles YES
 
@@ -29,37 +28,34 @@ ssh-add $HOME/.ssh/pg1_rsa
 ssh-add $HOME/.ssh/id_rsa
 ssh-add $HOME/.ssh/ttam-shared
 
-#eval $(dinghy env)
-
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+mkdir -p $HOME/go/bin
+export GOROOT=$HOME/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOROOT/bin
 export NVM_DIR="$HOME/.nvm"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$(which flake8):$PATH"
+#export PATH="$(which flake8):$PATH"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
 export P4USER=jpowers
 export EDITOR=vim
+export AWS_DEFAULT_PROFILE=default
+export profile=$AWS_DEFAULT_PROFILE
 
 eval "$(thefuck --alias)"
 
 bindkey -M vicmd '?' history-incremental-search-backward
 
-alias gf="git fetch --all --prune"
-alias prestart="VAGRANT_CWD=$HOME/23andme/product/ vagrant ssh -c 'supervisorctl restart all'"
-alias dc="docker-compose"
-alias pyconda="export PATH=$HOME/conda/anaconda/bin:$PATH"
-alias ctags="`brew --prefix`/bin/ctags"
-alias srcv=". venv/bin/activate || . ve/bin/activate"
-alias ..="cd .."
-alias ...="cd ../.."
 alias ....="cd ../../.."
-alias product.master="ssh ttam@product.master.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
+alias ...="cd ../.."
+alias ..="cd .."
+alias ctags="`brew --prefix`/bin/ctags"
+alias dc="docker-compose"
+alias prestart="VAGRANT_CWD=$HOME/23andme/product/ vagrant ssh -c 'supervisorctl restart all'"
 alias product.develop="ssh ttam@product.develop.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
-alias product.rkt="ssh ttam@product.researchkit.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
+alias product.master="ssh ttam@product.master.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
+alias pyconda="export PATH=$HOME/conda/anaconda/bin:$PATH"
+alias srcv=". venv/bin/activate || . ve/bin/activate"
+alias v7="export VAGRANT_VAGRANTFILE=Vagrantfile7"
+alias v5="export VAGRANT_VAGRANTFILE=Vagrantfile"
 
-alias gpf="git push -f"
-alias gs="git status"
-alias gl="git log --pretty="tformat:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset""

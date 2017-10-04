@@ -1,8 +1,6 @@
-#!/usr/env/bin bash
+#!/usr/bin/env bash
 # run this script in ~/dotfiles/
 
-SOURCEDIR=$PWD
-TARGETDIR=$(dirname $PWD)
 IFS=$'\n'
 
 LINKED_FILES=".zshrc
@@ -19,7 +17,7 @@ scripts.sh
 link_to() {
     echo "Linking $1:"
     {
-        ln -sf $SOURCEDIR/$1 $2/$1
+        ln -sf $HOME/dotfiles/$1 $2/$1
     } || {
         echo "Failed to create link for: $1"
     }
@@ -28,8 +26,8 @@ link_to() {
 echo $LINKED_FILES
 
 for file_name in $LINKED_FILES; do
-    link_to $file_name $TARGETDIR
+    link_to $file_name $HOME
 done
 
-link_to "flake8" "$TARGETDIR/.config/"
+link_to "flake8" "$HOME/.config/"
 

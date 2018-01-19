@@ -26,6 +26,7 @@ set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set ff=unix
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.

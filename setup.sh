@@ -49,6 +49,11 @@ brew install python-setuptools
 brew install python-pip
 brew install python3
 
+git clone https://github.com/rbenv/rbenv.git  $HOME/.rbenv
+git -C $HOME/.rbenv checkout b943955dbf10c436a8d4c7c36fd4216a34ef2b33
+$HOME/.rbenv/src/configure && make -C $HOME/.rbenv/src
+rbenv install 2.4.2
+rbenv global 2.4.2
 
 
 if [[ ! -x "${HOME}/.tmux" ]]; then

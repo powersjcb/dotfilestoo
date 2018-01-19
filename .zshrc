@@ -28,14 +28,19 @@ ssh-add $HOME/.ssh/pg1_rsa
 ssh-add $HOME/.ssh/id_rsa
 ssh-add $HOME/.ssh/ttam-shared
 
+
 mkdir -p $HOME/go/bin
-export GOROOT=$HOME/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOROOT/bin
+export _GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$_GOROOT/bin
 export NVM_DIR="$HOME/.nvm"
 export PATH="$PYENV_ROOT/bin:$PATH"
 #export PATH="$(which flake8):$PATH"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init -)"
 
 export P4USER=jpowers
 export EDITOR=vim
@@ -56,6 +61,5 @@ alias product.develop="ssh ttam@product.develop.tech.ttam.io -i ~/23andme/ansibl
 alias product.master="ssh ttam@product.master.tech.ttam.io -i ~/23andme/ansible/keys/ttam-shared"
 alias pyconda="export PATH=$HOME/conda/anaconda/bin:$PATH"
 alias srcv=". venv/bin/activate || . ve/bin/activate"
-alias v7="export VAGRANT_VAGRANTFILE=Vagrantfile7"
-alias v5="export VAGRANT_VAGRANTFILE=Vagrantfile"
+alias setgo="export GOPATH=\`pwd\` && export PATH=\$PATH:\$GOPATH/bin"
 

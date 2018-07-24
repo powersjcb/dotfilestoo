@@ -1,8 +1,9 @@
 #!/bin/bash
 TIME=$(date +%s)
-TEMP_DIR=$HOME/temp/$TIME
+mkdir -p $HOME/tmp
+TEMP_DIR=$HOME/tmp/$TIME
 
-mkdir cd $TEMP_DIR
+mkdir $TEMP_DIR
 trap "echo 'Removing temp directory'; rm -rf $TEMP_DIR;" EXIT
 
 

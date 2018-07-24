@@ -8,16 +8,14 @@ LINKED_FILES=".zshrc
 .ctags
 .vimrc
 .ideavimrc
-.global_requirements.txt
-alias.sh
-scripts.sh
 .gitconfig
 .gitignore"
 
 link_to() {
     echo "Linking $1:"
     {
-        ln -sf $HOME/dotfiles/$1 $2/$1
+        rm -f $2/$1
+        ln -sf $HOME/.dotfiles/$1 $2/$1
     } || {
         echo "Failed to create link for: $1"
     }

@@ -40,8 +40,7 @@ brew install git
 brew install rsync
 brew install asdf
 brew install tmux
-
-./dependencies.sh
+brew install vim
 
 # if [[ ! -x "${HOME}/.tmux" ]]; then
 #     # try installing tmux

@@ -1,14 +1,5 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-autoload -Uz promptinit
-promptinit
-prompt steeef
-
 defaults write com.apple.finder AppleShowAllFiles YES
 
 export ARDUINO_SDK_PATH=/Applications/Arduino.app/Contents/Java
@@ -21,15 +12,21 @@ export PATH=/usr/local/lib/python3.6/site-packages:$PATH
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$ARDUINO_SDK_PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
 
+export GOPATH=$HOME/go
 
-
-eval "$(rbenv init -)"
 
 export EDITOR=vim
 
 eval "$(thefuck --alias)"
+
+plugins=(
+  git
+  bundler
+  osx
+  rake
+  go
+)
 
 bindkey -M vicmd '?' history-incremental-search-backward
 
@@ -43,3 +40,9 @@ alias pyconda="export PATH=$HOME/conda/anaconda/bin:$PATH"
 alias srcv=". venv/bin/activate || . ve/bin/activate"
 alias setgo="export GOPATH=\`pwd\` && export PATH=\$PATH:\$GOPATH/bin"
 
+
+autoload -Uz compinit && compinit
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+eval "$(direnv hook zsh)"

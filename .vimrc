@@ -16,6 +16,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kana/vim-fakeclip'
 Plugin 'powersjcb/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 

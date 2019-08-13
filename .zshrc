@@ -1,5 +1,12 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="steeef"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+
 defaults write com.apple.finder AppleShowAllFiles YES
 
 export ARDUINO_SDK_PATH=/Applications/Arduino.app/Contents/Java

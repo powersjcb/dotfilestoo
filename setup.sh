@@ -39,37 +39,14 @@ brew install git
 
 brew install rsync
 brew install asdf
+brew install direnv
 brew install tmux
 brew install vim
 
-# if [[ ! -x "${HOME}/.tmux" ]]; then
-#     # try installing tmux
-#     {
-#         git clone --depth=1 https://github.com/tmux/tmux.git "${HOME}/.tmux/"
-#         cd $HOME/.tmux/
-#         sh autogen.sh
-#         ./configure && make && sudo make install
-#     } || {
-#         echo "something went wrong while building or installing tmux"
-#     }
-#     # always return to $HOME
-#     cd $HOME
-# fi
+if [[ ! -d "${HOME}/.oh-my-zsh/" ]]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+fi
 
-#if [[ ! -x "${HOME}/.zprezto" ]]; then
-#    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${HOME}/.zprezto"
-#else
-#    cd $HOME/.zprezto
-#    git checkout master
-#    git pull
-#fi
-
-# TODO: fix this, its broken
-#shopt -s extglob
-#for rcfile in $HOME/.zprezto/runcoms/; do
-#    ln -s "$rcfile" "${HOME}/.$(basename $rcfile)" | echo "$rcfile already exists"
-#done
-
-if [[ -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
+if [[ ! -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
     git clone https://github.com/gmarik/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
 fi

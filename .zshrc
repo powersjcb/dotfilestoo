@@ -2,7 +2,13 @@ PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="steeef"
-plugins=(git)
+plugins=(
+  git
+  bundler
+  osx
+  rake
+  go
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,7 +21,7 @@ mkdir -p $HOME/go/bin
 export _GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$_GOROOT/bin
 export PATH=/usr/local/lib/python2.7/site-packages:$PATH
-export PATH=/usr/local/lib/python3.6/site-packages:$PATH
+export PATH=/usr/local/lib/python3.7/site-packages:$PATH
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$ARDUINO_SDK_PATH"
@@ -26,14 +32,6 @@ export GOPATH=$HOME/go
 export EDITOR=vim
 
 eval "$(thefuck --alias)"
-
-plugins=(
-  git
-  bundler
-  osx
-  rake
-  go
-)
 
 bindkey -M vicmd '?' history-incremental-search-backward
 
@@ -49,7 +47,13 @@ alias setgo="export GOPATH=\`pwd\` && export PATH=\$PATH:\$GOPATH/bin"
 
 
 autoload -Uz compinit && compinit
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [[ -z $HOME/.asdf/asdf.sh ]]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi
 
-eval "$(direnv hook zsh)"
+
+
+if [[ -z /usr/local/bin/direnv ]]; then
+    eval "$(direnv hook zsh)"
+fi

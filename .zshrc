@@ -45,15 +45,21 @@ alias pyconda="export PATH=$HOME/conda/anaconda/bin:$PATH"
 alias srcv=". venv/bin/activate || . ve/bin/activate"
 alias setgo="export GOPATH=\`pwd\` && export PATH=\$PATH:\$GOPATH/bin"
 
+if [[ -f $HOME/.secrets ]]; then
+    source $HOME/.secrets
+fi
 
-autoload -Uz compinit && compinit
-if [[ -z $HOME/.asdf/asdf.sh ]]; then
+
+if [[ -f /usr/local/bin/direnv ]]; then
+    eval "$(direnv hook zsh)"
+fi
+
+export ASDF_DIR=$(brew --prefix asdf)
+
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+    autoload -Uz compinit && compinit
     . $HOME/.asdf/asdf.sh
     . $HOME/.asdf/completions/asdf.bash
 fi
 
 
-
-if [[ -z /usr/local/bin/direnv ]]; then
-    eval "$(direnv hook zsh)"
-fi

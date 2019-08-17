@@ -50,3 +50,8 @@ fi
 if [[ ! -x "${HOME}/.vim/bundle/Vundle.vim" ]]; then
     git clone https://github.com/gmarik/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
 fi
+
+if [[ ! -f "${HOME}/.colors/material-design-colors.itermcolors" ]]; then
+    mkdir -p $HOME/.colors
+    wget -O $HOME/.colors/material.itermcolors https://raw.githubusercontent.com/kaicataldo/material.vim/master/terminal-colors/iterm2/material.itermcolors
+fi

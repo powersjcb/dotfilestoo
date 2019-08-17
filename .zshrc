@@ -27,6 +27,7 @@ export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$ARDUINO_SDK_PATH"
 
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 
 export EDITOR=vim

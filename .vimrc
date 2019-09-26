@@ -18,6 +18,7 @@ Plugin 'powersjcb/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'junegunn/fzf'
 call vundle#end()
 
 " ================ General Config ====================
@@ -142,7 +143,7 @@ let g:flake8_show_in_file = 1
 set scrolloff=4         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
-set colorcolumn=120
+set colorcolumn=100
 
 " =============== syntastic setup =======================
 let g:syntastic_javascript_checkers = ['eslint']
@@ -183,6 +184,7 @@ if (has('termguicolors'))
 endif
 colorscheme material
 
+set rtp+=/usr/local/opt/fzf
 
 " source generic settings
 source ~/.ideavimrc

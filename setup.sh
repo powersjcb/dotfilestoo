@@ -31,6 +31,10 @@ brew install htop
 brew install zsh
 brew install thefuck
 
+brew install zsh-history-substring-search
+
+brew install fzf
+
 brew install automake
 brew install autoconf
 

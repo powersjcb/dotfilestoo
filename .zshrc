@@ -63,4 +63,16 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
     . $HOME/.asdf/completions/asdf.bash
 fi
 
+SUBSTRING_SEARCH=/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [[ -f $SUBSTRING_SEARCH ]]; then
+    . $SUBSTRING_SEARCH
+fi
 
+source <(kubectl completion zsh)
+
+# << keymappings >>
+bindkey '^u' history-substring-search-up
+bindkey '^y' history-substring-search-down
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

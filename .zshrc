@@ -7,7 +7,7 @@ plugins=(
   bundler
   osx
   rake
-  go
+  golang
 )
 
 source $ZSH/oh-my-zsh.sh

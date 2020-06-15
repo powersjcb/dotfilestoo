@@ -12,19 +12,21 @@ brew update
 brew doctor
 
 brew tap phinze/cask
+
 brew install brew-cask
 
-brewCaskApps=(iterm2 firefox)
+brewCaskApps=(iterm2 spectacle)
 brew cask install --force --appdir=/Applications ${brewCaskApps[@]}
 
+brew install go
 brew install moreutils
-brew install findutils --with-default-names
-brew install gnu-tar --with-default-names
-brew install gnu-sed --with-default-names
-brew install grep --with-default-names
+brew install findutils
+brew install gnu-tar
+brew install gnu-sed
+brew install grep
 brew install gzip
 brew install watch
-brew install wdiff --with-gettext
+brew install wdiff
 brew install wget
 brew install htop
 
@@ -46,6 +48,7 @@ brew install asdf
 brew install direnv
 brew install tmux
 brew install vim
+brew install kubectl
 
 if [[ ! -d "${HOME}/.oh-my-zsh/" ]]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
